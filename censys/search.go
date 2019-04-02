@@ -3,13 +3,17 @@ package censys
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strings"
 )
 
+type scanType string
+
 const (
-	scanPath = "/search/certificates"
+	scanPath              = "/search/"
+	CERTIFICATES scanType = scanPath + "certificates"
+	IPV4         scanType = scanPath + "ipv4"
+	WEBSITES     scanType = scanPath + "websites"
 )
 
 type Search struct {
@@ -27,8 +31,18 @@ type Metadata struct {
 }
 
 type Results struct {
-	IP        string   `json:"ip"`
-	Protocols []string `json:"protocols"`
+	IP                   string   `json:"ip"`
+	Protocols            []string `json:"protocols"`
+	Country              string   `json:"location.country"`
+	RegisteredCountry    string   `json:"location.registered_country"`
+	Longitude            string   `json:"location.longitude"`
+	Latitude             string   `json:"location.latitude"`
+	City                 string   `json:"location.city"`
+	RegisteredCountyCode string   `json:"location.registered_country_code"`
+	CountryCode          string   `json:"location.country_code"`
+	Province             string   `json:"location.province"`
+	PostalCode           string   `json:"location.postal_code"`
+	TimeZone             string   `json:"location.timezone"`
 }
 
 type SearchQuery struct {
@@ -38,29 +52,26 @@ type SearchQuery struct {
 	Flatten bool     `json:"flatten"`
 }
 
-func (c *Client) Search(ctx context.Context, query string) (*Search, error) {
+func (c *Client) Search(ctx context.Context, query string, scantype scanType) (*Search, error) {
 	var search Search
-	//body := neturl.Values{}
-	//body.Add("query", query)
-	queryJson := &SearchQuery{
+	s := make([]string, 0, 0)
+	queryJSON := &SearchQuery{
 		Query:   query,
 		Page:    1,
+		Fields:  s,
 		Flatten: true,
 	}
-	b, err := json.Marshal(queryJson)
+	b, err := json.Marshal(queryJSON)
 	if err != nil {
 		return nil, err
 	}
-	//body.Add(b)
-	//fmt.Println(strings.NewReader(body.Encode()))
 
-	req, err := c.NewRequest(http.MethodPost, scanPath, nil, strings.NewReader(string(b)))
+	req, err := c.NewRequest(http.MethodPost, string(scantype), nil, strings.NewReader(string(b)))
 	if err != nil {
 		return nil, err
 	}
 	if err := c.Do(ctx, req, &search); err != nil {
 		return nil, err
 	}
-	fmt.Printf("%v+", &req.Body)
 	return &search, err
 }

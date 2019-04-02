@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/gophercises/mail-rec/censys"
+	"github.com/oucema001/censys-go/censys"
 )
 
 func main() {
@@ -64,7 +64,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}*/
-	a, err := client.Search(context.Background(), "google.com")
+	a, err := client.Search(context.Background(), "217.252.68.114", censys.IPV4)
 	if err != nil {
 		fmt.Println(err)
 	}
