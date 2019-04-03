@@ -11,7 +11,7 @@ before_install:
 - chmod +x $GOPATH/bin/dep
 
 install:
- - go get -u github.com/golang/x/lint/golint
+ - go get -u golang.org/x/lint/golint
  - go get -u github.com/gordonklaus/ineffassign
  - dep ensure 
 
