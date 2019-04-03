@@ -13,6 +13,7 @@ before_install:
 install:
  - go get -u golang.org/x/lint/golint
  - go get -u github.com/gordonklaus/ineffassign
+ - dep init
  - dep ensure 
 
 script:
