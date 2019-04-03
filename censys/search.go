@@ -10,19 +10,23 @@ import (
 type scanType string
 
 const (
-	scanPath              = "/search/"
+	scanPath = "/search/"
+	//CERTIFICATES serach for certificates
 	CERTIFICATES scanType = scanPath + "certificates"
-	IPV4         scanType = scanPath + "ipv4"
-	WEBSITES     scanType = scanPath + "websites"
+	//IPV4 search for ipv4
+	IPV4 scanType = scanPath + "ipv4"
+	//WEBSITES search for websites
+	WEBSITES scanType = scanPath + "websites"
 )
 
+//Search struct that contains the result returned by Search
 type Search struct {
 	Status   string    `json:"status"`
-	Metadata Metadata  `json:"metadata"`
-	Results  []Results `json:"results"`
+	Metadata metadata  `json:"metadata"`
+	Results  []results `json:"results"`
 }
 
-type Metadata struct {
+type metadata struct {
 	Count       int    `json:"count"`
 	Query       string `json:"query"`
 	BackendTime int    `json:"backend_time"`
@@ -30,7 +34,7 @@ type Metadata struct {
 	Pages       int    `json:"pages"`
 }
 
-type Results struct {
+type results struct {
 	IP                   string   `json:"ip"`
 	Protocols            []string `json:"protocols"`
 	Country              string   `json:"location.country"`
@@ -45,17 +49,18 @@ type Results struct {
 	TimeZone             string   `json:"location.timezone"`
 }
 
-type SearchQuery struct {
+type searchQuery struct {
 	Query   string   `json:"query"`
 	Page    int      `json:"page"`
 	Fields  []string `json:"fields"`
 	Flatten bool     `json:"flatten"`
 }
 
+//Search searches a query using the API by specifying a query and a Scan Type
 func (c *Client) Search(ctx context.Context, query string, scantype scanType) (*Search, error) {
 	var search Search
 	s := make([]string, 0, 0)
-	queryJSON := &SearchQuery{
+	queryJSON := &searchQuery{
 		Query:   query,
 		Page:    1,
 		Fields:  s,

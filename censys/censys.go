@@ -14,26 +14,29 @@ const (
 	baseURL = "https://censys.io/api/v1"
 )
 
+//Client represents Censys http Client
 type Client struct {
-	ApiID     string
-	ApiSecret string
+	APIID     string
+	APISecret string
 	BaseURL   string
 	Debug     string
 	Client    *http.Client
 }
 
+//NewClient Creates new censys Client
 func NewClient(client *http.Client, apiID string, apiSecret string) *Client {
 	if client == nil {
 		client = http.DefaultClient
 	}
 	return &Client{
-		ApiID:     apiID,
-		ApiSecret: apiSecret,
+		APIID:     apiID,
+		APISecret: apiSecret,
 		BaseURL:   baseURL,
 		Client:    client,
 	}
 }
 
+//NewRequest Creates a new request to censys API
 func (c *Client) NewRequest(method string, path string, params interface{}, body io.Reader) (*http.Request, error) {
 	u, err := url.Parse(c.BaseURL + path)
 	if err != nil {
@@ -47,13 +50,14 @@ func (c *Client) newRequest(method string, u *url.URL, params interface{}, body 
 	if err != nil {
 		return nil, err
 	}
-	req.SetBasicAuth(c.ApiID, c.ApiSecret)
+	req.SetBasicAuth(c.APIID, c.APISecret)
 	if body != nil {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8")
 	}
 	return req, nil
 }
 
+//Do executes the API request
 func (c *Client) Do(ctx context.Context, req *http.Request, destination interface{}) error {
 	req = req.WithContext(ctx)
 	resp, err := c.Client.Do(req)
@@ -68,10 +72,10 @@ func (c *Client) Do(ctx context.Context, req *http.Request, destination interfac
 	if destination == nil {
 		return nil
 	}
-	return c.ParseResponse(destination, resp.Body)
+	return c.parseResponse(destination, resp.Body)
 }
 
-func (c *Client) ParseResponse(destination interface{}, body io.Reader) error {
+func (c *Client) parseResponse(destination interface{}, body io.Reader) error {
 	var err error
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(body)
