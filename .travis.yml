@@ -1,10 +1,7 @@
 language: go
 
 go:
-- 1.x
-- "1.10"
-- 1.11.x
-- master
+- 1.8
 
 env:
   - DEP_VERSION="0.4.1"
@@ -14,13 +11,13 @@ before_install:
 - chmod +x $GOPATH/bin/dep
 
 install:
- - go get -u github.com/golang/lint/golint
+ - go get -u github.com/golang/x/lint/golint
  - go get -u github.com/gordonklaus/ineffassign
+ - dep ensure 
 
 script:
 - golint -set_exit_status ./censys/...
 - ineffassign ./censys/
-- dep ensure
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f ./coverage.txt
