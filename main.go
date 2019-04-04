@@ -60,14 +60,15 @@ func main() {
 		ApiSecret: "q8qbfwgaEIJ3BYbLnVfHHzFIWvzd6Prb",
 	}*/
 	client := censys.NewClient(nil, "d8b4925a-2887-41d6-bbf5-6a00ea7dc529", "q8qbfwgaEIJ3BYbLnVfHHzFIWvzd6Prb")
-	/*p, err := client.GetProfile(context.Background())
-	if err != nil {
-		fmt.Println(err)
-	}*/
-	a, err := client.Search(context.Background(), "217.252.68.114", censys.IPV4)
+	p, err := client.GetProfile(context.Background())
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	fmt.Printf("%v+", a)
+	/*
+		a, err := client.Search(context.Background(), "217.252.68.114", censys.IPV4)
+		if err != nil {
+			fmt.Println(err)
+		}
+	*/
+	fmt.Printf("%v+", p)
 }

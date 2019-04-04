@@ -1,0 +1,31 @@
+{
+    "status": "ok",
+    "metadata": {
+      "count": 127530942,
+      "query": "*",
+      "backend_time": 263,
+      "page": 1,
+      "pages": 1275310
+    },
+    "results": [
+      {
+        "ip": "173.205.31.126",
+        "protocols": [
+          "80\/http",
+          "443\/https"
+        ]
+      },
+      {
+        "ip": "213.149.206.213",
+        "protocols": [
+          "80\/http"
+        ]
+      },  
+      {
+        "ip": "84.206.102.184",
+        "protocols": [
+          "80\/http"
+        ]
+      }
+    ]
+  }

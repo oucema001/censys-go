@@ -21,6 +21,7 @@ script:
 - golint -set_exit_status ./censys/...
 - ineffassign ./censys/
 - dep ensure
+- go test -race -coverprofile=coverage.txt -covermode=atomic
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f ./coverage.txt
