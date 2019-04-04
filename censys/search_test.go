@@ -63,5 +63,4 @@ func TestIpv4Scan(t *testing.T) {
 	assert.Nil(t, err)
 	assert.IsType(t, expectedSearch, search)
 	assert.Equal(t, expectedSearch, search)
-
 }

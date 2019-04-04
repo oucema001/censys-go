@@ -10,7 +10,7 @@ const (
 	accountURL = "/account"
 )
 
-// Profile represents the struct containg the account used for the API calls
+// Profile represents the struct containing the account used for the API calls
 type Profile struct {
 	Login      string `json:"login"`       // user login
 	Email      string `json:"email"`       //user email

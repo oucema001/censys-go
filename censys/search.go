@@ -35,6 +35,7 @@ type metadata struct {
 }
 
 type results struct {
+	//IPV4 results
 	IP                   string   `json:"ip"`
 	Protocols            []string `json:"protocols"`
 	Country              string   `json:"location.country"`
@@ -47,6 +48,13 @@ type results struct {
 	Province             string   `json:"location.province"`
 	PostalCode           string   `json:"location.postal_code"`
 	TimeZone             string   `json:"location.timezone"`
+	//Certificate Results
+	FingerprintSha256 string `json:"parsed.fingerprint_sha256"`
+	SubjectDn         string `json:"parsed.subject_dn string"`
+	IssuerDn          string `json:"parsed.issuer_dn "`
+	//Website Results
+	Domain    string `json:"domain"`
+	AlexaRank string `json:"alexa_rank"`
 }
 
 type searchQuery struct {
