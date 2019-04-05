@@ -19,4 +19,4 @@ install :
  - dep ensure
 
 test_script:
-  - go test -v ./censys
+  - go test -v  /usr/go/src/github.com/oucema001/censys-go/censys
