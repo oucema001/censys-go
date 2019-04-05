@@ -65,6 +65,9 @@ func (c *Client) Do(ctx context.Context, req *http.Request, destination interfac
 	if err != nil {
 		return err
 	}
+	if resp.StatusCode != 200 {
+		return fmt.Errorf("%s : %s", "error during api call", resp.Status)
+	}
 	fmt.Println(resp.Status)
 	fmt.Println(resp.StatusCode)
 

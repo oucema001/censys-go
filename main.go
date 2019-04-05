@@ -73,7 +73,12 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}*/
-	a, err := client.GetReport(context.Background(), censys.IPV4REPORT, "80.http.get.headers.server: nginx")
+	query := censys.ReportQuery{
+		Query:   "80.http.get.headers.server: nginx",
+		Field:   "location.country",
+		Buckets: 10,
+	}
+	a, err := client.GetReport(context.Background(), censys.IPV4REPORT, query)
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -1,0 +1,69 @@
+{
+    "primary_series": {
+        "certificates": {
+            "description": "[...]",
+            "details_url": "https:\/\/censys.io\/api\/v1\/data\/certificates",
+            "latest_result": {
+                "timestamp": "20151013T120047",
+                "name": "20151013T1200",
+                "details_url": "https:\/\/censys.io\/api\/v1\/data\/certificates\/20151013T1200"
+            },
+            "id": "certificates",
+            "name": "certificates"
+        },
+        "domain": {
+            "description": "[...]",
+            "details_url": "https:\/\/censys.io\/api\/v1\/data\/domain",
+            "latest_result": {
+                "timestamp": "20151013T120047",
+                "name": "20151013T1200",
+                "details_url": "https:\/\/censys.io\/api\/v1\/data\/certificates\/20151013T1200"
+            },
+            "id": "domain",
+            "name": "domain"
+        },
+        "ipv4": {
+            "description": "[...]",
+            "details_url": "https:\/\/censys.io\/api\/v1\/data\/ipv4",
+            "latest_result": {
+                "timestamp": "20151013T120047",
+                "name": "20151013T1200",
+                "details_url": "https:\/\/censys.io\/api\/v1\/data\/certificates\/20151013T1200"
+            },
+            "id": "ipv4",
+            "name": "ipv4"
+        }
+    },
+    "raw_series": {
+        "22-ssh-banner-full_ipv4": {
+            "subprotocol": "banner",
+            "description": "[...]",
+            "protocol": "ssh",
+            "name": "22-ssh-banner-full_ipv4",
+            "details_url": "https:\/\/censys.io\/api\/v1\/data\/22-ssh-banner-full_ipv4",
+            "latest_result": {
+                "timestamp": "20150930T005634",
+                "name": "20150930T0056",
+                "details_url": "https:\/\/censys.io\/api\/v1\/data\/22-ssh-banner-full_ipv4\/20150930T0056"
+            },
+            "destination": "full_ipv4",
+            "id": "22-ssh-banner-full_ipv4",
+            "port": 22
+        },
+        "443-https-ssl3-alexa_top1mil": {
+            "subprotocol": "ssl3",
+            "description": "[...]",
+            "protocol": "https",
+            "name": "443-https-ssl3-alexa_top1mil",
+            "details_url": "https:\/\/censys.io\/api\/v1\/data\/443-https-ssl3-alexa_top1mil",
+            "latest_result": {
+                "timestamp": "20150727T060848",
+                "name": "20150727T0608",
+                "details_url": "https:\/\/censys.io\/api\/v1\/data\/443-https-ssl3-alexa_top1mil\/20150727T0608"
+            },
+            "destination": "alexa_top1mil",
+            "id": "443-https-ssl3-alexa_top1mil",
+            "port": 443
+        }
+    }
+}

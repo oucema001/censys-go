@@ -1,0 +1,28 @@
+{
+"id": "22-ssh-banner-full_ipv4",
+"port": 22,
+"protocol": "ssh",
+"subprotocol": "banner",
+"destination": "full_ipv4",
+"name": "22-ssh-banner-full_ipv4",
+"description": "This dataset is composed of a ZMap TCP SYN scan on port 21 and a ZGrab SSH Banner Grab\r\nfor the for responsive hosts. The connection is terminated after a banner has been\r\nreceived. We do not currently capture SSH host keys, but we are planning to add this\r\nfunctionality in the future.",
+"results": {
+"historical": [
+{
+"timestamp": "20150912T132919",
+"id": "20150912T1329",
+"details_url": "https:\/\/censys.io\/api\/v1\/data\/22-ssh-banner-full_ipv4\/20150912T1329"
+},  
+{
+"timestamp": "20150930T005634",
+"id": "20150930T0056",
+"details_url": "https:\/\/censys.io\/api\/v1\/data\/22-ssh-banner-full_ipv4\/20150930T0056"
+}
+],
+"latest": {
+"timestamp": "20150930T005634",
+"id": "20150930T0056",
+"details_url": "https:\/\/censys.io\/api\/v1\/data\/22-ssh-banner-full_ipv4\/20150930T0056"
+}
+}
+}
