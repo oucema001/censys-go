@@ -1,3 +1,6 @@
+
+build: false
+deploy: false
 version: "{build}"
 skip_tags: true
 
@@ -9,13 +12,10 @@ environment:
   GOVERSION: 1.10
   GOBIN: /usr/go/bin
 
-build: false
-deploy: false
-
 stack: go 1.10
 
 install :
- - set PATH=%GOPATH%/bin;/usr/go/bin;%PATH%
+ - export PATH=$PATH:/usr/go/bin:$GOPATH/bin
  - go version
  - go env
  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
