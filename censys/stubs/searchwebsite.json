@@ -1,0 +1,24 @@
+{
+    "status": "ok",
+    "results": [
+        {
+            "domain": "google.com",
+            "alexa_rank": 1
+        },
+        {
+            "domain": "twitter.com",
+            "alexa_rank": 11
+        },
+        {
+            "domain": "google.com.hk",
+            "alexa_rank": 37
+        }
+    ],
+    "metadata": {
+        "count": 198062,
+        "query": "www.google.com",
+        "backend_time": 172,
+        "page": 1,
+        "pages": 1981
+    }
+}

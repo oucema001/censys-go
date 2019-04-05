@@ -1,0 +1,22 @@
+{
+    "status": "ok",
+    "results": [
+        {
+            "parsed.fingerprint_sha256": "e082e9338a4639b41f95cbd199539efacc667278bbb50e4bf6b2138c8ea25f14",
+            "parsed.subject_dn": "C=US, ST=California, L=Mountain View, O=Google LLC, CN=www.google.com",
+            "parsed.issuer_dn": "C=US, O=Google Trust Services, CN=GTS CA 1O1"
+        },
+        {
+            "parsed.fingerprint_sha256": "a9a1cd8961fecc1ae407a2d4e6d3ebce011213caa955bfbc9f855e0b6d086b45",
+            "parsed.subject_dn": "C=US, ST=California, L=Mountain View, O=Google LLC, CN=www.google.com",
+            "parsed.issuer_dn": "C=US, O=Google Trust Services, CN=GTS CA 1O1"
+        }
+    ],
+    "metadata": {
+        "count": 2849,
+        "query": "www.google.com",
+        "backend_time": 792,
+        "page": 1,
+        "pages": 29
+    }
+}

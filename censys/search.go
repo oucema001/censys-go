@@ -40,7 +40,7 @@ type results struct {
 	Protocols            []string `json:"protocols"`
 	Country              string   `json:"location.country"`
 	RegisteredCountry    string   `json:"location.registered_country"`
-	Longitude            string   `json:"location.longitude"`
+	Longitude            float64  `json:"location.longitude"`
 	Latitude             string   `json:"location.latitude"`
 	City                 string   `json:"location.city"`
 	RegisteredCountyCode string   `json:"location.registered_country_code"`
@@ -48,16 +48,18 @@ type results struct {
 	Province             string   `json:"location.province"`
 	PostalCode           string   `json:"location.postal_code"`
 	TimeZone             string   `json:"location.timezone"`
+	Continent            string   `json:"location.continent"`
 	//Certificate Results
 	FingerprintSha256 string `json:"parsed.fingerprint_sha256"`
-	SubjectDn         string `json:"parsed.subject_dn string"`
-	IssuerDn          string `json:"parsed.issuer_dn "`
+	SubjectDn         string `json:"parsed.subject_dn"`
+	IssuerDn          string `json:"parsed.issuer_dn"`
 	//Website Results
 	Domain    string `json:"domain"`
-	AlexaRank string `json:"alexa_rank"`
+	AlexaRank int    `json:"alexa_rank"`
 }
 
-type searchQuery struct {
+//Search Query constructs a query for the search api
+type SearchQuery struct {
 	Query   string   `json:"query"`
 	Page    int      `json:"page"`
 	Fields  []string `json:"fields"`
@@ -65,16 +67,9 @@ type searchQuery struct {
 }
 
 //Search searches a query using the API by specifying a query and a Scan Type
-func (c *Client) Search(ctx context.Context, query string, scantype scanType) (*Search, error) {
+func (c *Client) Search(ctx context.Context, query *SearchQuery, scantype scanType) (*Search, error) {
 	var search Search
-	s := make([]string, 0, 0)
-	queryJSON := &searchQuery{
-		Query:   query,
-		Page:    1,
-		Fields:  s,
-		Flatten: true,
-	}
-	b, err := json.Marshal(queryJSON)
+	b, err := json.Marshal(query)
 	if err != nil {
 		return nil, err
 	}

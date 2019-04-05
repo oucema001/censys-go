@@ -90,3 +90,4 @@ func (client *Client) GetView(ctx context.Context, viewty viewType, query string
 	}
 	return &view, nil
 }
+
