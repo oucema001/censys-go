@@ -19,10 +19,15 @@ func GetReportTest(t *testing.T) {
 		var query ReportQuery
 		dec := json.NewDecoder(r.Body)
 		dec.Decode(&query)
-		assert.Equal(t, query.Field, expectedIP)
+		assert.Equal(t, query.Query, expectedIP)
 		w.Write(getStubs(t, "report"))
 	})
-	rep, err := client.GetReport(context.Background(), IPV4REPORT, "80.http.get.headers.server: nginx")
+	query := ReportQuery{
+		Query:   "80.http.get.headers.server: nginx",
+		Field:   "location.country",
+		Buckets: 10,
+	}
+	rep, err := client.GetReport(context.Background(), IPV4REPORT, query)
 	assert.Nil(t, err)
 	report := &Report{
 
