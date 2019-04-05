@@ -15,7 +15,7 @@ func TestIpv4Scan(t *testing.T) {
 	defer tearTestServer()
 	expectedIP := "144.57.12.1"
 
-	mux.HandleFunc(string(IPV4), func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc(string(IPV4SEARCH), func(w http.ResponseWriter, r *http.Request) {
 		assert.Equal(t, r.Method, "POST")
 		var query searchQuery
 		dec := json.NewDecoder(r.Body)
@@ -25,7 +25,7 @@ func TestIpv4Scan(t *testing.T) {
 		assert.NotNil(t, net.ParseIP(expectedIP))
 		w.Write(getStubs(t, "scan"))
 	})
-	search, err := client.Search(context.Background(), expectedIP, IPV4)
+	search, err := client.Search(context.Background(), expectedIP, IPV4SEARCH)
 
 	ExMetadata := metadata{
 		Count:       127530942,

@@ -10,13 +10,13 @@ import (
 type scanType string
 
 const (
-	scanPath = "/search/"
-	//CERTIFICATES serach for certificates
-	CERTIFICATES scanType = scanPath + "certificates"
-	//IPV4 search for ipv4
-	IPV4 scanType = scanPath + "ipv4"
-	//WEBSITES search for websites
-	WEBSITES scanType = scanPath + "websites"
+	searchPath = "/search/"
+	//CERTIFICATESSEARCH serach for certificates
+	CERTIFICATESSEARCH scanType = searchPath + "certificates"
+	//IPV4SEARCH search for ipv4
+	IPV4SEARCH scanType = searchPath + "ipv4"
+	//WEBSITESSEARCH search for websites
+	WEBSITESSEARCH scanType = searchPath + "websites"
 )
 
 //Search struct that contains the result returned by Search

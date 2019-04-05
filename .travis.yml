@@ -22,7 +22,8 @@ script:
 - golint -set_exit_status ./censys/...
 - ineffassign ./censys/
 - dep ensure
-- go test -race -coverprofile=coverage.txt -covermode=atomic
+- gofmt -l censys/ | read && echo "Code differs from gofmt's style" 1>&2 && exit 1 || true
+- go test .\censys\ --race --coverprofile=coverage.txt --covermode=atomic
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f ./coverage.txt

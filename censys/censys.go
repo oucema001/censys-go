@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -64,6 +65,9 @@ func (c *Client) Do(ctx context.Context, req *http.Request, destination interfac
 	if err != nil {
 		return err
 	}
+	fmt.Println(resp.Status)
+	fmt.Println(resp.StatusCode)
+
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
 		return err
@@ -79,7 +83,7 @@ func (c *Client) parseResponse(destination interface{}, body io.Reader) error {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(body)
 	s := buf.String() //
-	//fmt.Printf("%v+", string(s))
+	fmt.Printf("%v+", string(s))
 	if w, ok := destination.(io.Writer); ok {
 		_, err = io.Copy(w, body)
 	} else {

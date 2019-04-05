@@ -61,15 +61,19 @@ func main() {
 	}*/
 	client := censys.NewClient(nil, "d8b4925a-2887-41d6-bbf5-6a00ea7dc529", "q8qbfwgaEIJ3BYbLnVfHHzFIWvzd6Prb")
 	/*	p, err := client.GetProfile(context.Background())
+				if err != nil {
+					fmt.Println(err)
+				}
+
+			a, err := client.Search(context.Background(), "www.google.com", censys.WEBSITES)
 			if err != nil {
 				fmt.Println(err)
 			}
-
-		a, err := client.Search(context.Background(), "www.google.com", censys.WEBSITES)
+		a, err := client.GetView(context.Background(), censys.WEBSITESVIEW, "google.com")
 		if err != nil {
 			fmt.Println(err)
 		}*/
-	a, err := client.GetView(context.Background(), censys.WEBSITESVIEW, "google.com")
+	a, err := client.GetReport(context.Background(), censys.IPV4REPORT, "80.http.get.headers.server: nginx")
 	if err != nil {
 		fmt.Println(err)
 	}
