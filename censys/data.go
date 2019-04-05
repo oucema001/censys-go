@@ -32,13 +32,14 @@ type DataView struct {
 	} `json:"results"`
 }
 
+/*
 //Data struct containg the returned values of the /data endpoint
 type Data struct {
 	PrimarySeries PrimarySeries `json:"primary_series"`
 	RawSeries     RawSeries     `json:"raw_series"`
 }
 
-//LatestResult
+//LatestResult struc for
 type LatestResult struct {
 	Timestamp  string `json:"timestamp"`
 	Name       string `json:"name"`
@@ -109,6 +110,101 @@ type Four43HTTPSSsl3AlexaTop1Mil struct {
 type RawSeries struct {
 	Two2SSHBannerFullIpv4       Two2SSHBannerFullIpv4       `json:"22-ssh-banner-full_ipv4"`
 	Four43HTTPSSsl3AlexaTop1Mil Four43HTTPSSsl3AlexaTop1Mil `json:"443-https-ssl3-alexa_top1mil"`
+}
+*/
+
+//Data struct containg the returned values of the /data endpoint
+type Data struct {
+	PrimarySeries PrimarySeries `json:"primary_series"`
+	RawSeries     RawSeries     `json:"raw_series"`
+}
+
+//AlexaTop1MillionSnapshotsDeprecatedFormat contains data returned for
+type AlexaTop1MillionSnapshotsDeprecatedFormat struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//AlexaTop1MillionSnapshots contains data returned for
+type AlexaTop1MillionSnapshots struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//AllX509CertificatesDeprecatedFormat contains data returned for
+type AllX509CertificatesDeprecatedFormat struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//IPv4SnapshotsDeprecatedFormat contains data returned for
+type IPv4SnapshotsDeprecatedFormat struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//IPv4Snapshots contains data returned for
+type IPv4Snapshots struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//AllX509Certificates contains data returned for
+type AllX509Certificates struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//IPv4BannersSnapshots contains data returned for
+type IPv4BannersSnapshots struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//CertificatesByDateAdded contains data returned for
+type CertificatesByDateAdded struct {
+	Description  string      `json:"description"`
+	DetailsURL   string      `json:"details_url"`
+	LatestResult interface{} `json:"latest_result"`
+	ID           string      `json:"id"`
+	Name         string      `json:"name"`
+}
+
+//PrimarySeries contains data returned for
+type PrimarySeries struct {
+	AlexaTop1MillionSnapshotsDeprecatedFormat AlexaTop1MillionSnapshotsDeprecatedFormat `json:"Alexa Top 1 Million Snapshots (Deprecated Format)"`
+	AlexaTop1MillionSnapshots                 AlexaTop1MillionSnapshots                 `json:"Alexa Top 1 Million Snapshots"`
+	AllX509CertificatesDeprecatedFormat       AllX509CertificatesDeprecatedFormat       `json:"All X.509 Certificates (Deprecated Format)"`
+	IPv4SnapshotsDeprecatedFormat             IPv4SnapshotsDeprecatedFormat             `json:"IPv4 Snapshots (Deprecated Format)"`
+	IPv4Snapshots                             IPv4Snapshots                             `json:"IPv4 Snapshots"`
+	AllX509Certificates                       AllX509Certificates                       `json:"All X.509 Certificates"`
+	IPv4BannersSnapshots                      IPv4BannersSnapshots                      `json:"IPv4 Banners Snapshots"`
+	CertificatesByDateAdded                   CertificatesByDateAdded                   `json:"Certificates by Date Added"`
+}
+
+//RawSeries contains data returned for
+type RawSeries struct {
 }
 
 //GetData calls the /data api and returns a data struct or an error

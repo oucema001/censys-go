@@ -1,0 +1,61 @@
+{
+    "primary_series": {
+        "Alexa Top 1 Million Snapshots (Deprecated Format)": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "Alexa Top 1 Million Snapshots": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "All X.509 Certificates (Deprecated Format)": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "IPv4 Snapshots (Deprecated Format)": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "IPv4 Snapshots": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "All X.509 Certificates": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "IPv4 Banners Snapshots": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        },
+        "Certificates by Date Added": {
+            "description": "test",
+            "details_url": "test",
+            "latest_result": null,
+            "id": "test",
+            "name": "test"
+        }
+    },
+    "raw_series": {}
+}
