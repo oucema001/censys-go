@@ -61,12 +61,12 @@ alexa rank : 1
 - [x] /api/v1/view/websites/:id
 - [x] /api/v1/view/certificates/:id
 #### Data
-- [] /api/v1/data
+- [ ] /api/v1/data
 #### Report
 - /api/v1/report/:index
 - [x] /api/v1/report/ipv4
-- [] /api/v1/report/websites
-- [] /api/v1/report/certificates
+- [ ] /api/v1/report/websites
+- [ ] /api/v1/report/certificates
 
 ### Links
 * [Censys API documentation](https://censys.io/api/v1/docs/report)
