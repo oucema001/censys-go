@@ -1,7 +1,6 @@
 
 build: off
 deploy: off
-version: "{build}"
 
 clone_folder: /usr/go/src/github.com/oucema001/censys-go
 clone_depth: 1
