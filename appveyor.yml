@@ -1,0 +1,27 @@
+version: "{build}"
+skip_tags: true
+
+clone_folder: /usr/go/src/github.com/oucema001/censys-go
+clone_depth: 1
+
+environment:
+  GOPATH: /usr/go/
+  GOVERSION: 1.10
+  GOBIN: /usr/go/bin
+
+build: false
+deploy: false
+
+stack: go 1.10
+
+before_test:
+  - go vet ./...
+install :
+ - set PATH=%GOPATH%\bin;/usr/go/bin;%PATH%
+ - go version
+ - go env
+ - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+ - dep ensure
+
+test_script:
+  - go test -v ./censys

@@ -11,6 +11,12 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+const (
+	searchStubCert string = "search/searchcertificates"
+	searchStubWeb  string = "search/searchwebsite"
+	searchStubIP   string = "search/searchipv4"
+)
+
 func TestIpv4Scan(t *testing.T) {
 	setUpTestServe()
 	defer tearTestServer()
@@ -29,7 +35,7 @@ func TestIpv4Scan(t *testing.T) {
 		ip := query.Query
 		assert.NotEmpty(t, ip)
 		assert.NotNil(t, net.ParseIP(expectedIP.Query))
-		w.Write(getStubs(t, "searchipv4"))
+		w.Write(getStubs(t, searchStubIP))
 	})
 	search, err := client.Search(context.Background(), expectedIP, IPV4SEARCH)
 
@@ -99,7 +105,7 @@ func TestWebSiteScan(t *testing.T) {
 		ip := query.Query
 		assert.NotEmpty(t, ip)
 		assert.NotNil(t, net.ParseIP(expectedIP.Query))
-		w.Write(getStubs(t, "searchwebsite"))
+		w.Write(getStubs(t, searchStubWeb))
 	})
 	search, err := client.Search(context.Background(), expectedIP, IPV4SEARCH)
 
@@ -153,7 +159,7 @@ func TestCertificateScan(t *testing.T) {
 		assert.NotEmpty(t, ip)
 		_, err := url.Parse(expectedCertQuery.Query)
 		assert.Nil(t, err)
-		w.Write(getStubs(t, "searchcertificates"))
+		w.Write(getStubs(t, searchStubCert))
 	})
 	search, err := client.Search(context.Background(), expectedCertQuery, IPV4SEARCH)
 
