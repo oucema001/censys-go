@@ -14,7 +14,6 @@ environment:
 stack: go 1.10
 
 install :
- - export PATH=$PATH:/usr/go/bin:$GOPATH/bin
  - go version
  - go env
  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
