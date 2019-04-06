@@ -68,8 +68,6 @@ func (c *Client) Do(ctx context.Context, req *http.Request, destination interfac
 	if resp.StatusCode != 200 {
 		return fmt.Errorf("%s : %s", "error during api call", resp.Status)
 	}
-	fmt.Println(resp.Status)
-	fmt.Println(resp.StatusCode)
 
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
@@ -86,7 +84,7 @@ func (c *Client) parseResponse(destination interface{}, body io.Reader) error {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(body)
 	s := buf.String() //
-	fmt.Printf("%v+", string(s))
+	//	fmt.Printf("%v+", string(s))
 	if w, ok := destination.(io.Writer); ok {
 		_, err = io.Copy(w, body)
 	} else {

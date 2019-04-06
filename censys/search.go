@@ -58,7 +58,7 @@ type results struct {
 	AlexaRank int    `json:"alexa_rank"`
 }
 
-//Search Query constructs a query for the search api
+//SearchQuery constructs a query for the search api
 type SearchQuery struct {
 	Query   string   `json:"query"`
 	Page    int      `json:"page"`

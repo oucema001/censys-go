@@ -221,6 +221,7 @@ func (c *Client) GetData(ctx context.Context) (*Data, error) {
 	return &data, nil
 }
 
+//GetDataSeries returns data Series View
 func (c *Client) GetDataSeries(ctx context.Context) (*DataView, error) {
 	return nil, nil
 }
