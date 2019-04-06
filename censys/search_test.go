@@ -37,6 +37,13 @@ func TestIpv4Scan(t *testing.T) {
 		assert.NotNil(t, net.ParseIP(expectedIP.Query))
 		w.Write(getStubs(t, searchStubIP))
 	})
+	prot := []string{
+		"80/http",
+	}
+	prot2 := []string{
+		"80/http",
+		"443/https",
+	}
 	search, err := client.Search(context.Background(), expectedIP, IPV4SEARCH)
 
 	ExMetadata := metadata{
@@ -48,15 +55,12 @@ func TestIpv4Scan(t *testing.T) {
 	}
 	exResults := []results{
 		results{
-			Country:           "United States",
-			RegisteredCountry: "United States",
-			Longitude:         -119.7143,
-			City:              "Boardman",
-			IP:                "173.205.31.126",
-			Protocols: []string{
-				"80/http",
-				"443/https",
-			},
+			Country:              "United States",
+			RegisteredCountry:    "United States",
+			Longitude:            -119.7143,
+			City:                 "Boardman",
+			IP:                   "173.205.31.126",
+			Protocols:            prot2,
 			RegisteredCountyCode: "US",
 			CountryCode:          "US",
 			Province:             "Oregon",
@@ -65,16 +69,12 @@ func TestIpv4Scan(t *testing.T) {
 			TimeZone:             "America/Los_Angeles",
 		},
 		results{
-			IP: "213.149.206.213",
-			Protocols: []string{
-				"80/http",
-			},
+			IP:        "213.149.206.213",
+			Protocols: prot,
 		},
 		results{
-			IP: "84.206.102.184",
-			Protocols: []string{
-				"80/http",
-			},
+			IP:        "84.206.102.184",
+			Protocols: prot,
 		},
 	}
 	expectedSearch := &Search{
