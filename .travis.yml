@@ -18,7 +18,6 @@ install:
  - go get -u github.com/gordonklaus/ineffassign
 
 script:
-- dep init
 - golint -set_exit_status ./censys/...
 - ineffassign ./censys/
 - dep ensure
