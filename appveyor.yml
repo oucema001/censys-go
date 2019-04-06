@@ -9,13 +9,14 @@ clone_folder: /usr/go/src/github.com/oucema001/censys-go
 clone_depth: 1
 
 environment:
-  GOPATH: /usr/go/
+  GOPATH: /home/appveyor/.gvm/pkgsets/go1.10.5
   GOVERSION: 1.10
-  GOBIN: /usr/go/bin
+  GOBIN: /home/appveyor/.gvm/pkgsets/go1.10.5/bin
 
 stack: go 1.10
 
 install :
+-  export GOBIN=[WorkspacePath]/bin
  - go version
  - go env
  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
