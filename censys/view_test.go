@@ -23,11 +23,26 @@ func TestGetView(t *testing.T) {
 		w.Write(getStubs(t, "view"))
 	})
 	view, err := client.GetView(context.Background(), IPV4VIEW, "google.com")
-	expectedRes := &View{
-		Raw:                "MIIDQG9rw=",
-		ValidationNssValid: false,
+	sigAlg := SignatureAlgorithm{
+		Oid:  "Test",
+		Name: "Test",
 	}
+	signature := Signature{
+		SelfSigned:         false,
+		Valid:              false,
+		Value:              "Test",
+		SignatureAlgorithm: sigAlg,
+	}
+	issuer := Issuer{
+		CommonName: []string{"Test"},
+	}
+	expectedRes := &Parsed{
+		FingerprintSha1: "Test",
+		SubjectDn:       "Test",
+		Issuer:          issuer,
+	}
+
 	assert.Nil(t, err)
 	assert.IsType(t, expectedRes, view)
-	assert.EqualValues(t, expectedRes.Raw, view.Raw)
+	assert.EqualValues(t, expectedRes, view)
 }

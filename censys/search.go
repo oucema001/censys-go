@@ -41,7 +41,7 @@ type results struct {
 	Country              string   `json:"location.country"`
 	RegisteredCountry    string   `json:"location.registered_country"`
 	Longitude            float64  `json:"location.longitude"`
-	Latitude             string   `json:"location.latitude"`
+	Latitude             float64  `json:"location.latitude"`
 	City                 string   `json:"location.city"`
 	RegisteredCountyCode string   `json:"location.registered_country_code"`
 	CountryCode          string   `json:"location.country_code"`
