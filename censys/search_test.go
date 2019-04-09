@@ -64,18 +64,6 @@ func TestIpv4Scan(t *testing.T) {
 			PostalCode:           "97818",
 			TimeZone:             "America/Los_Angeles",
 		},
-		results{
-			IP: "213.149.206.213",
-			Protocols: []string{
-				"80/http",
-			},
-		},
-		results{
-			IP: "84.206.102.184",
-			Protocols: []string{
-				"80/http",
-			},
-		},
 	}
 	expectedSearch := &Search{
 		Status:   "ok",

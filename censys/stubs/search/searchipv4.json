@@ -24,18 +24,6 @@
       "location.continent": "North America",
       "location.postal_code": "97818",
       "location.timezone": "America/Los_Angeles"
-    },
-    {
-      "ip": "213.149.206.213",
-      "protocols": [
-        "80\/http"
-      ]
-    },
-    {
-      "ip": "84.206.102.184",
-      "protocols": [
-        "80\/http"
-      ]
     }
   ]
 }
