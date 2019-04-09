@@ -78,7 +78,7 @@ type View struct {
 	} `json:"parsed"`
 }
 
-//GetView returns a view
+//GetView returns a view of a result obtained by search
 func (client *Client) GetView(ctx context.Context, viewty viewType, query string) (*View, error) {
 	var view View
 	req, err := client.NewRequest(http.MethodGet, string(viewty)+url.QueryEscape(query), nil, nil)
