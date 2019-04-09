@@ -1,0 +1,34 @@
+{
+    "status": "ok",
+    "metadata": {
+        "count": 130517957,
+        "backend_time": 1599,
+        "nonnull_count": 206619766,
+        "other_result_count": 29829665,
+        "buckets": 5,
+        "error_bound": 0,
+        "query": "*"
+    },
+    "results": [
+        {
+            "key": "80\/http",
+            "doc_count": 60360211
+        },
+        {
+            "key": "443\/https",
+            "doc_count": 55055587
+        },
+        {
+            "key": "7547\/cwmp",
+            "doc_count": 38971729
+        },
+        {
+            "key": "21\/ftp",
+            "doc_count": 13434960
+        },
+        {
+            "key": "25\/smtp",
+            "doc_count": 8967614
+        }
+    ]
+}
