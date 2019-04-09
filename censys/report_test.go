@@ -9,13 +9,13 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func GetReportTest(t *testing.T) {
+func TestGetReport(t *testing.T) {
 	setUpTestServe()
 	defer tearTestServer()
 
 	expectedIP := "80.http.get.headers.server: nginx"
 	mux.HandleFunc(string(IPV4REPORT), func(w http.ResponseWriter, r *http.Request) {
-		assert.Equal(t, http.MethodGet, r.Method)
+		assert.Equal(t, http.MethodPost, r.Method)
 		var query ReportQuery
 		dec := json.NewDecoder(r.Body)
 		dec.Decode(&query)
