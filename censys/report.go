@@ -61,7 +61,7 @@ func (c *Client) GetReport(ctx context.Context, typeReport reportType, query Rep
 	if err != nil {
 		return nil, err
 	}
-	req, err := c.NewRequest(http.MethodPost, string(typeReport), nil, bytes.NewReader(q))
+	req, err := c.NewRequest(http.MethodPost, string(typeReport), bytes.NewReader(q))
 	if err != nil {
 		return nil, err
 	}

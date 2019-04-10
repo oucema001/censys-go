@@ -28,7 +28,7 @@ type Quota struct {
 // GetProfile makes an API call to retrieve account details through the accountURL endpoint and returns a Profile struct
 func (c *Client) GetProfile(ctx context.Context) (*Profile, error) {
 	var profile Profile
-	req, err := c.NewRequest(http.MethodGet, accountURL, nil, nil)
+	req, err := c.NewRequest(http.MethodGet, accountURL, nil)
 	if err != nil {
 		return nil, err
 	}

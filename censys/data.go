@@ -210,7 +210,7 @@ type RawSeries struct {
 //GetData calls the /data api and returns a data struct or an error
 func (c *Client) GetData(ctx context.Context) (*Data, error) {
 	var data Data
-	req, err := c.NewRequest(http.MethodGet, dataPath, nil, nil)
+	req, err := c.NewRequest(http.MethodGet, dataPath, nil)
 	if err != nil {
 		return nil, err
 	}

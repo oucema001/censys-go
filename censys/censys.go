@@ -38,19 +38,20 @@ func NewClient(client *http.Client, apiID string, apiSecret string) *Client {
 }
 
 //NewRequest Creates a new request to censys API
-func (c *Client) NewRequest(method string, path string, params interface{}, body io.Reader) (*http.Request, error) {
+func (c *Client) NewRequest(method string, path string, body io.Reader) (*http.Request, error) {
 	u, err := url.Parse(c.BaseURL + path)
 	if err != nil {
 		return nil, err
 	}
-	return c.newRequest(method, u, params, body)
+	return c.newRequest(method, u, body)
 }
 
-func (c *Client) newRequest(method string, u *url.URL, params interface{}, body io.Reader) (*http.Request, error) {
+func (c *Client) newRequest(method string, u *url.URL,  body io.Reader) (*http.Request, error) {
 	req, err := http.NewRequest(method, u.String(), body)
 	if err != nil {
 		return nil, err
 	}
+	
 	req.SetBasicAuth(c.APIID, c.APISecret)
 	if body != nil {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8")

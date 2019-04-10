@@ -74,7 +74,7 @@ func (c *Client) Search(ctx context.Context, query *SearchQuery, scantype scanTy
 		return nil, err
 	}
 
-	req, err := c.NewRequest(http.MethodPost, string(scantype), nil, strings.NewReader(string(b)))
+	req, err := c.NewRequest(http.MethodPost, string(scantype), strings.NewReader(string(b)))
 	if err != nil {
 		return nil, err
 	}

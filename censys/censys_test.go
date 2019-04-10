@@ -42,8 +42,16 @@ func getStubs(t *testing.T, stubName string) []byte {
 	return content
 }
 
-func testNewClient(t *testing.T) {
+func TestNewClient(t *testing.T) {
 	cli := NewClient(nil, idAPI, secretAPI)
 	assert.Equal(t, idAPI, cli.APIID)
 	assert.Equal(t, secretAPI, cli.APISecret)
+}
+
+func TestNewClientWithMethodError(t * testing.T){
+	setUpTestServe()
+	defer tearTestServer()
+	req,err:=client.NewRequest("z","\\err",nil)
+	assert.NotNil(t,err)
+	assert.Nil(t,req)
 }
