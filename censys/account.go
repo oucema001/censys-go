@@ -2,7 +2,6 @@ package censys
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 )
 
@@ -37,7 +36,5 @@ func (c *Client) GetProfile(ctx context.Context) (*Profile, error) {
 	if err = c.Do(ctx, req, &profile); err != nil {
 		return nil, err
 	}
-	fmt.Printf("%v+", err)
-
 	return &profile, nil
 }

@@ -84,7 +84,7 @@ func (c *Client) parseResponse(destination interface{}, body io.Reader) error {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(body)
 	s := buf.String() //
-	//	fmt.Printf("%v+", string(s))
+	//fmt.Printf("%v+", string(s))
 	if w, ok := destination.(io.Writer); ok {
 		_, err = io.Copy(w, body)
 	} else {

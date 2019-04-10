@@ -36,26 +36,26 @@ type metadata struct {
 
 type results struct {
 	//IPV4 results
-	IP                   string   `json:"ip"`
-	Protocols            []string `json:"protocols"`
-	Country              string   `json:"location.country"`
-	RegisteredCountry    string   `json:"location.registered_country"`
-	Longitude            float64  `json:"location.longitude"`
-	Latitude             float64  `json:"location.latitude"`
-	City                 string   `json:"location.city"`
-	RegisteredCountyCode string   `json:"location.registered_country_code"`
-	CountryCode          string   `json:"location.country_code"`
-	Province             string   `json:"location.province"`
-	PostalCode           string   `json:"location.postal_code"`
-	TimeZone             string   `json:"location.timezone"`
-	Continent            string   `json:"location.continent"`
+	IP                   string   `json:"ip,omitempty,omitempty"`
+	Protocols            []string `json:"protocols,omitempty"`
+	Country              string   `json:"location.country,omitempty"`
+	RegisteredCountry    string   `json:"location.registered_country,omitempty"`
+	Longitude            float64  `json:"location.longitude,omitempty"`
+	Latitude             float64  `json:"location.latitude,omitempty"`
+	City                 string   `json:"location.city,omitempty"`
+	RegisteredCountyCode string   `json:"location.registered_country_code,omitempty"`
+	CountryCode          string   `json:"location.country_code,omitempty"`
+	Province             string   `json:"location.province,omitempty"`
+	PostalCode           string   `json:"location.postal_code,omitempty"`
+	TimeZone             string   `json:"location.timezone,omitempty"`
+	Continent            string   `json:"location.continent,omitempty"`
 	//Certificate Results
-	FingerprintSha256 string `json:"parsed.fingerprint_sha256"`
-	SubjectDn         string `json:"parsed.subject_dn"`
-	IssuerDn          string `json:"parsed.issuer_dn"`
+	FingerprintSha256 string `json:"parsed.fingerprint_sha256,omitempty"`
+	SubjectDn         string `json:"parsed.subject_dn,omitempty"`
+	IssuerDn          string `json:"parsed.issuer_dn,omitempty"`
 	//Website Results
-	Domain    string `json:"domain"`
-	AlexaRank int    `json:"alexa_rank"`
+	Domain    string `json:"domain,omitempty"`
+	AlexaRank int    `json:"alexa_rank,omitempty"`
 }
 
 //SearchQuery constructs a query for the search api

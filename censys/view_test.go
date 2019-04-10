@@ -24,10 +24,10 @@ func TestGetView(t *testing.T) {
 	})
 	view, err := client.GetView(context.Background(), IPV4VIEW, "google.com")
 	expectedRes := &View{
-		Raw:                "MIIDQG9rw=",
-		ValidationNssValid: false,
+		Domain:    "google.com",
+		AlexaRank: 55,
 	}
 	assert.Nil(t, err)
 	assert.IsType(t, expectedRes, view)
-	assert.EqualValues(t, expectedRes.Raw, view.Raw)
+	assert.EqualValues(t, expectedRes, view)
 }
