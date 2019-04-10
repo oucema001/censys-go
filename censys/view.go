@@ -99,10 +99,10 @@ type chain struct {
 			Organization       []string `json:"organization"`
 			OrganizationalUnit []string `json:"organizational_unit"`
 		} `json:"issuer"`
-	} 
+	}
 }
 
-type tls  struct {
+type tls struct {
 	ServerKeyExchange struct {
 		EcdhParams struct {
 			CurveID struct {
@@ -190,7 +190,7 @@ type tls  struct {
 			} `json:"issuer"`
 		} `json:"parsed"`
 	} `json:"certificate"`
-	Chain []chain `json:"chain"`
+	Chain       []chain `json:"chain"`
 	CipherSuite struct {
 		ID   string `json:"id"`
 		Name string `json:"name"`
@@ -263,8 +263,8 @@ type View struct {
 	Num25 struct {
 		SMTP struct {
 			Starttls struct {
-				Ehlo string `json:"ehlo"`
-				TLS tls `json:"tls"`
+				Ehlo     string `json:"ehlo"`
+				TLS      tls    `json:"tls"`
 				Starttls string `json:"starttls"`
 				Banner   string `json:"banner"`
 				Metadata struct {
@@ -285,7 +285,7 @@ type View struct {
 	} `json:"80"`
 	Num443 struct {
 		HTTPS struct {
-			TLS tls  `json:"tls"`
+			TLS       tls `json:"tls"`
 			DheExport struct {
 				Support  bool `json:"support"`
 				Metadata struct {

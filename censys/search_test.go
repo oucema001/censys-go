@@ -47,7 +47,7 @@ func TestIpv4Scan(t *testing.T) {
 		Pages:       1275310,
 	}
 	exResults := []results{
-		results{
+		{
 			Country:           "United States",
 			RegisteredCountry: "United States",
 			Longitude:         -119.7143,
@@ -105,15 +105,15 @@ func TestWebSiteScan(t *testing.T) {
 		Pages:       1981,
 	}
 	exResults := []results{
-		results{
+		{
 			Domain:    "google.com",
 			AlexaRank: 1,
 		},
-		results{
+		{
 			Domain:    "twitter.com",
 			AlexaRank: 11,
 		},
-		results{
+		{
 			Domain:    "google.com.hk",
 			AlexaRank: 37,
 		},
@@ -159,12 +159,12 @@ func TestCertificateScan(t *testing.T) {
 		Pages:       29,
 	}
 	exResultsCert := []results{
-		results{
+		{
 			FingerprintSha256: "e082e9338a4639b41f95cbd199539efacc667278bbb50e4bf6b2138c8ea25f14",
 			SubjectDn:         "C=US, ST=California, L=Mountain View, O=Google LLC, CN=www.google.com",
 			IssuerDn:          "C=US, O=Google Trust Services, CN=GTS CA 1O1",
 		},
-		results{
+		{
 			FingerprintSha256: "a9a1cd8961fecc1ae407a2d4e6d3ebce011213caa955bfbc9f855e0b6d086b45",
 			SubjectDn:         "C=US, ST=California, L=Mountain View, O=Google LLC, CN=www.google.com",
 			IssuerDn:          "C=US, O=Google Trust Services, CN=GTS CA 1O1",

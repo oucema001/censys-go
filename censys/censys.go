@@ -46,12 +46,12 @@ func (c *Client) NewRequest(method string, path string, body io.Reader) (*http.R
 	return c.newRequest(method, u, body)
 }
 
-func (c *Client) newRequest(method string, u *url.URL,  body io.Reader) (*http.Request, error) {
+func (c *Client) newRequest(method string, u *url.URL, body io.Reader) (*http.Request, error) {
 	req, err := http.NewRequest(method, u.String(), body)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	req.SetBasicAuth(c.APIID, c.APISecret)
 	if body != nil {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8")

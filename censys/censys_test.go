@@ -48,10 +48,10 @@ func TestNewClient(t *testing.T) {
 	assert.Equal(t, secretAPI, cli.APISecret)
 }
 
-func TestNewClientWithMethodError(t * testing.T){
+func TestNewClientWithMethodError(t *testing.T) {
 	setUpTestServe()
 	defer tearTestServer()
-	req,err:=client.NewRequest("z","\\err",nil)
-	assert.NotNil(t,err)
-	assert.Nil(t,req)
+	req, err := client.NewRequest("z", "\\err", nil)
+	assert.NotNil(t, err)
+	assert.Nil(t, req)
 }
